@@ -63,7 +63,7 @@ cd ansible-SealedSecrets-kubeseal
 
 ```bash
 # Ejecutar el playbook
-ansible-playbook -i inventory/hosts.ini playbook.yml
+sudo ansible-playbook -i inventory/hosts.ini playbook.yml
 ```
 
 ### ✅ Resultado esperado
