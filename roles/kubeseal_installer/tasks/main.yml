@@ -1,4 +1,5 @@
 # roles/kubeseal_installer/tasks/main.yml
+
 - name: 📦 Asegurar que 'tar' esté instalado
   package:
     name: tar
@@ -31,10 +32,15 @@
 - name: 🔍 Buscar el binario extraído
   find:
     paths: "{{ tmpdir.path }}"
-    patterns: "kubeseal*linux-amd64"
+    patterns: "^kubeseal$"
     use_regex: true
     recurse: yes
   register: kubeseal_bin
+
+- name: ❗ Verificar que se encontró el binario de kubeseal
+  fail:
+    msg: "No se encontró el binario kubeseal dentro del archivo descargado"
+  when: kubeseal_bin.files | length == 0
 
 - name: 📌 Instalar kubeseal en /usr/local/bin
   copy:
