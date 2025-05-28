@@ -1,16 +1,17 @@
 # 🔐 ansible-SealedSecrets-kubeseal
 
-Este repositorio contiene un rol de Ansible para instalar el binario [`kubeseal`](https://github.com/bitnami-labs/sealed-secrets) de Bitnami Sealed Secrets en sistemas Linux. `kubeseal` es una herramienta esencial para cifrar secretos antes de subirlos a un repositorio GitOps, como ArgoCD.
+Este repositorio contiene un rol de **Ansible** para instalar el binario [`kubeseal`](https://github.com/bitnami-labs/sealed-secrets) de **Bitnami Sealed Secrets** en sistemas Linux.  
+`kubeseal` es una herramienta esencial para cifrar secretos antes de subirlos a un repositorio GitOps como **ArgoCD**.
 
 ---
 
 ## 📦 Características
 
 - Instala la versión **v0.29.0** de `kubeseal`.
-- Compatible con sistemas **RedHat, Debian, Alpine, Arch**.
-- Descarga, extrae y coloca el binario en `/usr/local/bin/`.
-- Verifica la instalación mostrando la versión.
-- No requiere `Helm`, solo instala el binario localmente.
+- Compatible con sistemas **RedHat, Debian, Alpine y Arch Linux**.
+- Descarga, extrae y copia el binario a `/usr/local/bin/`.
+- Verifica la instalación automáticamente.
+- No requiere `Helm`, solo instala el binario en local o remoto.
 
 ---
 
@@ -19,12 +20,12 @@ Este repositorio contiene un rol de Ansible para instalar el binario [`kubeseal`
 ```bash
 ansible-SealedSecrets-kubeseal/
 ├── inventory/
-│   └── hosts.ini            # Inventario local o remoto
-├── playbook.yml            # Playbook principal
+│   └── hosts.ini              # Inventario local o remoto
+├── playbook.yml              # Playbook principal
 ├── roles/
 │   └── kubeseal_installer/
 │       └── tasks/
-│           └── main.yml    # Tareas de instalación
+│           └── main.yml      # Tareas de instalación
 ├── LICENSE
 └── README.md
 ```
@@ -51,7 +52,7 @@ cd ansible-SealedSecrets-kubeseal
 127.0.0.1 ansible_connection=local
 ```
 
-#### Opción B: Instalar en nodo remoto
+#### Opción B: Instalar en un nodo remoto
 
 ```ini
 # inventory/hosts.ini
@@ -68,16 +69,17 @@ sudo ansible-playbook -i inventory/hosts.ini playbook.yml
 
 ### ✅ Resultado esperado
 
-Al finalizar, el binario `kubeseal` estará disponible en:
+Al finalizar, el binario `kubeseal` estará instalado en:
 
 ```bash
 /usr/local/bin/kubeseal
 ```
 
-Verificación automática incluida:
+Con verificación automática:
 
 ```bash
 kubeseal --version
+# kubeseal version: v0.29.0
 ```
 
 ---
@@ -92,7 +94,7 @@ kubeseal --version
 
 ## 📄 Licencia
 
-Este proyecto está bajo la licencia [MIT](LICENSE).
+Este proyecto está licenciado bajo la [MIT License](LICENSE).
 
 ---
 
@@ -104,4 +106,17 @@ Víctor Hugo Gálvez – [GitHub](https://github.com/vhgalvez)
 
 ## ⭐️ ¿Te fue útil?
 
-¡Dale una estrella al repositorio para apoyar el proyecto!
+¡Dale una ⭐ al repositorio para apoyar el proyecto!
+
+---
+
+### ✅ Commit sugerido
+
+```bash
+# Preparar el commit
+git add README.md
+git commit -m "📝 Mejora de documentación: guía completa de instalación para kubeseal v0.29.0"
+git push origin main
+```
+
+¿Quieres que prepare también un `CHANGELOG.md` o lo dejamos así por ahora?
