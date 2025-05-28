@@ -1,0 +1,6 @@
+# playbook.yml
+- name: 🔧 Instalar kubeseal (Bitnami Sealed Secrets CLI)
+  hosts: localhost
+  become: true
+  roles:
+    - kubeseal_installer
