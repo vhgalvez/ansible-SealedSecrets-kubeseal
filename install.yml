@@ -1,9 +1,0 @@
-# playbook.yml
----
-- name: 🔐 Instalar kubeseal v0.29.0 en el sistema local
-  hosts: localhost
-  become: true
-  gather_facts: true
-
-  roles:
-    - kubeseal_installer
