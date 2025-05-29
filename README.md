@@ -12,25 +12,9 @@ Este repositorio contiene un rol de **Ansible** para instalar el binario [`kubes
 - Descarga, extrae y copia el binario a `/usr/local/bin/`.
 - Verifica la instalación automáticamente.
 - No requiere `Helm`, solo instala el binario en local o remoto.
-
+- 
 ---
 
-## 📁 Estructura del repositorio
-
-```bash
-ansible-SealedSecrets-kubeseal/
-├── inventory/
-│   └── hosts.ini              # Inventario local o remoto
-├── playbook.yml              # Playbook principal
-├── roles/
-│   └── kubeseal_installer/
-│       └── tasks/
-│           └── main.yml      # Tareas de instalación
-├── LICENSE
-└── README.md
-```
-
----
 
 ## 🚀 Uso
 
@@ -64,7 +48,7 @@ cd ansible-SealedSecrets-kubeseal
 
 ```bash
 # Ejecutar el playbook
-sudo ansible-playbook -i inventory/hosts.ini playbook.yml
+sudo ansible-playbook -i inventory/hosts.ini install_sealed_secrets.yml
 ```
 
 ### ✅ Resultado esperado
